@@ -6,7 +6,7 @@ import numpy as np
 
 #threshhold should be between 0 and 1
 
-def denoise(filename, threshold)
+def denoise(filename, threshold):
 
 	rate, f = read(filename)
 
@@ -20,7 +20,7 @@ def denoise(filename, threshold)
 
 
 	data_avarage = np.average(PSD)
-	indices = PSD > threshold*average      # Find all freqs with large power
+	indices = PSD > threshold*data_avarage      # Find all freqs with large power
 
 	PSDclean = PSD * indices       		   # Zero out all others
 	fhat = indices * fhat          		   # Zero out small Fourier coeffs. in Y
